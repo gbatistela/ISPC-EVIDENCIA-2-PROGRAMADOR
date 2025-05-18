@@ -3,16 +3,16 @@ import dispositivos
 opciones_bucle = 0
 opcion_menu = ""
 
-while opciones_bucle != 5:
+while opciones_bucle != 6:
     print("******************************* \n*       SmartHome Menu        *")
     print("1. Agregar dispositivo")
     print("2. Listar dispositivos")
     print("3. Buscar dispositivo")
     print("4. Borrar dispositivo")
-    print("5. Salir")
-    print("                                                          ")
+    print("5. Activar Automatizacion")  
+    print("6. Salir")                                               
 
-    opcion_menu = input("Seleccione una opción (1-5): ")
+    opcion_menu = input("Seleccione una opción (1-6): ")
 
     match opcion_menu:
         case "1":
@@ -36,8 +36,13 @@ while opciones_bucle != 5:
             pass
 
         case "5":
+            dispositivos.automatizacion_encender_luces()
+    
+        case "6":
             print("Finalizando Aplicacion")
             pass
         
         case _:
             print("Opcion invalida")
+
+        
