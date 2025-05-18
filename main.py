@@ -1,23 +1,28 @@
 import dispositivos
 
-opciones_bucle = 0
 opcion_menu = ""
 
-while opciones_bucle != 6:
-    print("******************************* \n*       SmartHome Menu        *")
+while True:
+    print(" " * 10)     
+    print("*******************************")
+    print("*                             *")
+    print("*       SmartHome Menu        *")
+    print("*                             *")
+    print("*******************************")
     print("1. Agregar dispositivo")
     print("2. Listar dispositivos")
     print("3. Buscar dispositivo")
     print("4. Borrar dispositivo")
     print("5. Activar Automatizacion")  
-    print("6. Salir")                                               
+    print("6. Salir")  
+    print(" " * 10)                                             
 
     opcion_menu = input("Seleccione una opción (1-6): ")
 
     match opcion_menu:
         case "1":
-            tipo_dispositivo = input("Ingrese el tipo de dispositivo: ")
-            nombre_dispositivo = input("Ingrese el nombre del dispositivo: ")
+            tipo_dispositivo = input("Ingrese el tipo de dispositivo: ").lower()
+            nombre_dispositivo = input("Ingrese el nombre del dispositivo: ").lower()
             dispositivos.crear_dispositivo(tipo_dispositivo, nombre_dispositivo)
             pass
 
@@ -40,7 +45,7 @@ while opciones_bucle != 6:
     
         case "6":
             print("Finalizando Aplicacion")
-            pass
+            break
         
         case _:
             print("Opcion invalida")

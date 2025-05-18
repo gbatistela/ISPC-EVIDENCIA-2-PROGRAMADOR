@@ -23,17 +23,31 @@ def crear_dispositivo(tipo_dispositivo, nombre_dispositivo):
 
 
 def buscar_dispositivo_por_nombre(nombre_dispositivo):
-    for i in dispositivos:
-        if i["Nombre Dispositivo"] == nombre_dispositivo:
-            return print(i)
+    for dispositivo in dispositivos:
+        if dispositivo["Nombre Dispositivo"].lower() == nombre_dispositivo.lower():
+            print("Id:", dispositivo["Id"])
+            print("Tipo Dispositivo:", dispositivo["Tipo Dispositivo"])
+            print("Nombre Dispositivo:", dispositivo["Nombre Dispositivo"])
+            print("Estado:", "Encendido" if dispositivo["Estado"] else "Apagado")
+            print("Fecha de Creacion:", dispositivo["Fecha de Creacion"])
+            print("-" * 40)
+            return 
 
-    return print(f"No se encontro el dispositivo: {nombre_dispositivo}")
+    print(f"No se encontró el dispositivo: {nombre_dispositivo}")
 
 
 def listar_dispositivos():
-    for i in dispositivos:
-        return print(i)
-    return print("No se ha encontrado ningun dispositivo")
+    if not dispositivos:
+        print("No se ha encontrado ningún dispositivo")
+        return
+    
+    for dispositivo in dispositivos:
+        print("Id:", dispositivo["Id"])
+        print("Tipo Dispositivo:", dispositivo["Tipo Dispositivo"])
+        print("Nombre Dispositivo:", dispositivo["Nombre Dispositivo"])
+        print("Estado:", "Encendido" if dispositivo["Estado"] else "Apagado")
+        print("Fecha de Creacion:", dispositivo["Fecha de Creacion"])
+        print("-" * 40)  
 
 
 def eliminar_dispositivo_por_nombre(nombre_dispositivo):
