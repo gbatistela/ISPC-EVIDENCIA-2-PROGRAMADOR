@@ -1,4 +1,4 @@
-# DESARROLLO DE SOFWARE-PROGRAMACIÓN-EVIDENCIA-2
+# DESARROLLO DE SOFTWARE-PROGRAMACIÓN-EVIDENCIA-2
 <h1></h1> INTEGRANTES
 
 #### 1-) Juan Cruz Avila - email: juan.cruz.avila@mi.unc.edu.ar - Usuario Git: juancruz-dev
