@@ -68,4 +68,4 @@ def automatizacion_encender_luces():
             return print("luces entrada principal encendidas")
             
 
-    return print("No se han detectado luces a encender")    
+    return print("No se han detectado luces a encender")       
