@@ -23,10 +23,10 @@ def registrar_usuario(nombre, apellido, email, contraseña):
 def iniciar_sesion(email, contraseña):
     global usuario_actual
 
-    for u in usuarios:
-        if u["email"] == email and u["contraseña"] == contraseña:
-            usuario_actual = u
-            print(f"Bienvenido, {u['nombre']} ({u['rol']})\n")
+    for usuario in usuarios:
+        if usuario["email"] == email and usuario["contraseña"] == contraseña:
+            usuario_actual = usuario
+            print(f"Bienvenido, {usuario['nombre']} ({usuario['rol']})\n")
             return True
 
     print("Credenciales incorrectas.\n")
@@ -41,12 +41,12 @@ def mostrar_datos_personales():
         print("-" * 40)
 
 def cambiar_rol(email):
-    for u in usuarios:
-        if u["email"] == email:
-            if u["rol"] == "estandar":
-                u["rol"] = "admin"
+    for usuario in usuarios:
+        if usuario["email"] == email:
+            if usuario["rol"] == "estandar":
+                usuario["rol"] = "admin"
             else:
-                u["rol"] = "estandar"
-            print(f"El rol del usuario fue cambiado a: {u['rol']}")
+                usuario["rol"] = "estandar"
+            print(f"El rol del usuario fue cambiado a: {usuario['rol']}")
             return
     print("Usuario no encontrado.")
