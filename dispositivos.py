@@ -62,10 +62,15 @@ def eliminar_dispositivo_por_nombre(nombre_dispositivo):
 def automatizacion_encender_luces():
     print("movimiento detectado en entrada principal")
 
-    for i in dispositivos:
-        if i["Nombre Dispositivo"] == "luces".lower() and i["Estado"] == False:
-            i["Estado"] = True
-            return print("luces entrada principal encendidas")
-            
+    luces_encendidas = 0
 
-    return print("No se han detectado luces a encender")    
+    for i in dispositivos:
+        if i["Nombre Dispositivo"].lower() == "luces" and not i["Estado"]:
+            i["Estado"] = True
+            luces_encendidas += 1
+
+    if luces_encendidas > 0:
+        print(f"{luces_encendidas} luces encendidas en la entrada principal")
+    else:
+        print("No se han detectado luces a encender")
+ 
