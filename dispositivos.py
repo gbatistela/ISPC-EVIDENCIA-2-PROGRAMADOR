@@ -73,4 +73,5 @@ def automatizacion_encender_luces():
         print(f"{luces_encendidas} luces encendidas en la entrada principal")
     else:
         print("No se han detectado luces a encender")
+
  
