@@ -67,11 +67,7 @@ def automatizacion_encender_luces():
     for i in dispositivos:
         if i["Nombre Dispositivo"].lower() == "luces" and not i["Estado"]:
             i["Estado"] = True
-            luces_encendidas += 1
+            return print("luces entrada principal encendidas")
+            
 
-    if luces_encendidas > 0:
-        print(f"{luces_encendidas} luces encendidas en la entrada principal")
-    else:
-        print("No se han detectado luces a encender")
-
- 
+    return print("No se han detectado luces a encender")    
