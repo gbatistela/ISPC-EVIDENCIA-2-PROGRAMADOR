@@ -50,6 +50,7 @@ WHERE id_usuario IN (
     SELECT id_usuario FROM dispositivos GROUP BY id_usuario HAVING COUNT(*) > 1
 );
 
+sql
 
 ## Otro ejemplo:
 
