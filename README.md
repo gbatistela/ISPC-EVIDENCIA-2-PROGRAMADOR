@@ -12,7 +12,7 @@ La idea es demostrar cómo se puede trabajar con una base de datos completa y or
 
 1. Ingresar a [https://onecompiler.com/mysql](https://onecompiler.com/mysql)
 2. Seleccionar el lenguaje **MySQL**.
-3. Copiar y pegar el contenido del archivo `SmartHome_DML.sql` en el editor.
+3. Copiar y pegar el contenido del archivo primero el ddl_smart_home_db.sql junto con dml_smart_home_db.sql (Podés pegar ambos archivos uno debajo del otro en el mismo editor.).
 4. Ejecutar el código para visualizar los resultados de las consultas.
 
 Importante:
