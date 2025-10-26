@@ -155,13 +155,13 @@ INSERT INTO eventos_dispositivos (id_dispositivo, tipo_evento, descripcion, id_u
 
 -- Ver todos los dispositivos ordenados ascendentemente con el nombre del usuario propietario
 
-*/
+/*
 Esta consulta permite ver qué dispositivos tiene cada usuario dentro del sistema Smart Home. 
 Es clave para el administrador, ya que le da una visión general de la cantidad de equipos conectados por persona.
 Con esta información se pueden detectar usuarios que tienen muchos dispositivos (y quizás necesiten soporte especial), 
 o identificar dispositivos no asignados correctamente (por ejemplo, si están sin usuario).
 También sirve para realizar un seguimiento técnico o mantenimiento preventivo de forma más organizada.
-/*
+*/
 
 SELECT d.nombre AS dispositivo, d.tipo_dispositivo, u.nombre AS propietario, u.email
 FROM dispositivos d
@@ -170,12 +170,12 @@ ORDER BY propietario ASC;
 
 -- Mostrar las automatizaciones y los dispositivos que controlan
 
-*/
+/*
 Esta consulta muestra la relación entre las automatizaciones (por ejemplo, “Encender luces al detectar movimiento”) y los dispositivos involucrados.
 Es útil para analizar cómo interactúan los diferentes equipos dentro de las rutinas inteligentes del hogar.
 A partir de estos datos, los administradores o desarrolladores pueden ajustar o optimizar automatizaciones, 
 evitando conflictos entre dispositivos o automatizaciones redundantes.
-/*
+*/
 
 SELECT a.nombre AS automatizacion, d.nombre AS dispositivo, d.tipo_dispositivo
 FROM automatizaciones a
@@ -184,11 +184,11 @@ JOIN dispositivos d ON ad.id_dispositivo = d.id_dispositivo;
 
 -- Consultar los 5 primeros eventos recientes junto con los usuarios que los generaron
 
-*/
+/*
 Esta consulta devuelve los últimos 5 eventos ocurridos en el sistema, como detección de movimiento, encendido de luces, apertura de puertas, etc.
 Sirve para monitorear la actividad reciente dentro del hogar, lo cual es muy útil para auditorías o reportes rápidos.
 También ayuda a los usuarios a mantenerse informados sobre lo que sucede en tiempo real en su casa inteligente.
-/*
+*/
 
 SELECT e.tipo_evento, e.descripcion, e.fecha_evento, u.nombre AS usuario
 FROM eventos_dispositivos e
@@ -198,11 +198,11 @@ LIMIT 5;
 
 -- Consultar los movimientos detectado
 
-*/
+/*
 Esta consulta combina la información de los sensores de movimiento con los eventos detectados, mostrando los casos donde se registró actividad.
 Su objetivo principal es reforzar la seguridad del hogar, permitiendo identificar actividad sospechosa o confirmar que los sensores estén funcionando correctamente.
 También puede utilizarse para analizar patrones de movimiento en distintos horarios o zonas de la casa.
-/*
+*/
 
 SELECT s.id_dispositivo, s.estado_activo, e.tipo_evento, e.descripcion
 FROM sensor_movimiento s
@@ -212,12 +212,12 @@ WHERE e.tipo_evento = 'deteccion_movimiento';
 
 -- SUBCONSULTAS
 -- Mostrar la cantidad de dispositivos de los usuarios que poseen más de un dispositivo
-*/
+/*
 Esta subconsulta identifica a los usuarios que tienen más de un dispositivo en su hogar inteligente.
 El objetivo es analizar el nivel de uso del sistema y detectar a los usuarios más activos o con más equipamiento.
 Con esta información se pueden ofrecer recomendaciones personalizadas, planes de soporte especiales o promociones orientadas 
 a usuarios con mayor cantidad de dispositivos.
-/*
+*/
 
 SELECT nombre, apellido,
        (SELECT COUNT(*) 
@@ -233,7 +233,7 @@ WHERE id_usuario IN (
 
 
 -- Mostrar dispositivo que pertenecen al rol de administrador
-*/
+/*
 Esta consulta obtiene los dispositivos que pertenecen a usuarios con rol de administrador.
 Sirve para controlar los privilegios del sistema, verificando qué equipos están bajo gestión directa del administrador.
 Además, ayuda a garantizar una distribución segura y ordenada de los dispositivos, evitando que equipos críticos estén asignados a usuarios comunes.
